@@ -19,10 +19,11 @@ class NewArrivalSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("New Arrival", style: TextStyle(fontSize: 20)),
-                Icon(FontAwesomeIcons.arrowRightLong),
+                GestureDetector(onTap: (){},child: Icon(FontAwesomeIcons.arrowRightLong)),
               ],
             ),
             GridView.builder(
+
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: 10,

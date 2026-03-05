@@ -3,15 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CButtons extends StatelessWidget {
-  const CButtons({super.key});
-
+  CButtons({
+    super.key,
+    required this.cbtitle,
+    required this.cbicon,
+    required this.onTapCbuttons,
+  });
+  String cbtitle;
+  IconData cbicon;
+  VoidCallback onTapCbuttons;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onTapCbuttons,
       child: Container(
         height: 45,
-        width: 150,
+        width: 200,
         decoration: BoxDecoration(
           color: Color(0xff2e2e2e),
           borderRadius: BorderRadius.circular(40),
@@ -23,7 +30,7 @@ class CButtons extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  "Shop Now",
+                  cbtitle,
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.white),
                 ),
@@ -33,10 +40,7 @@ class CButtons extends StatelessWidget {
                 child: CircleAvatar(
                   backgroundColor: Colors.white,
                   radius: 21,
-                  child: Transform.rotate(
-                    angle: 5.5,
-                    child: Icon(FontAwesomeIcons.arrowRight, color: Colors.black,size: 18,),
-                  ),
+                  child: Icon(cbicon),
                 ),
               ),
             ],

@@ -1,50 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class ImageSlidingWidget extends StatelessWidget {
-  const ImageSlidingWidget({super.key});
+class ImageSlidingWidget extends StatefulWidget {
+  String imageurl =
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1HTaTDhNOPHF0zkO2XmYRl-3H5suWz8-sEw&s';
+  ImageSlidingWidget({super.key, required this.imageurl});
+  @override
+  State<ImageSlidingWidget> createState() => _ImageSlidingWidgetState();
+}
 
+class _ImageSlidingWidgetState extends State<ImageSlidingWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height * .55,
-      child: Column(
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * .57,
+      child: Stack(
         children: [
-          Expanded(
-            child: PageView.builder(
-              itemCount: 5,
-              itemBuilder: (BuildContext context, index) {
-                return ClipRRect(
-                  child: Image.network(
-                    'https://www.fairindigo.com/cdn/shop/files/CL_02600_White_SS24_7522.jpg?v=1739738264&width=360',
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                );
-              },
+          /// IMAGE SLIDER
+          PageView.builder(
+            itemCount: 5,
+            itemBuilder: (context, index) {
+              return Image.network(
+                widget.imageurl,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              );
+            },
+          ),
+          Positioned(
+            top: 40,
+            left: 10,
+            child: IconButton(
+              onPressed: () {},
+              icon: CircleAvatar(
+                radius: 25,
+                backgroundColor: Colors.white,
+                child: Icon(FontAwesomeIcons.arrowLeft, size: 22),
+              ),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 2,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      child: Text(
-                        "Limited Edition" + index.toString(),
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    );
-                  },
-                ),
+          Positioned(
+            top: 40,
+            right: 11,
+            child: IconButton(
+              onPressed: () {},
+              icon: CircleAvatar(
+                radius: 25,
+                backgroundColor: Colors.white,
+                child: Icon(FontAwesomeIcons.heart, size: 22),
               ),
-            ],
+            ),
           ),
         ],
       ),

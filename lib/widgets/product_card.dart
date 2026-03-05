@@ -1,13 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:yumishop/screens/product_detail/product_detail_screen.dart';
+
 class ProductCard extends StatelessWidget {
   const ProductCard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductDetailScreen(ptitle: 'Summer Puffer Jacket Malo', pimage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4dvoedMGH7tnfOYcJttDdz38EWC0sv47-OA&s', price: '25', tags: 'jacket', description: 'Buy Jackets for men in best quality in all Colors & Styles from Uniworth. Browse our Jackets collection 2024 in bomber, puffer style.', rating: '4.6',)));
+      },
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -16,8 +20,6 @@ class ProductCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
-            /// IMAGE SECTION
             Expanded(
               child: Stack(
                 children: [
@@ -32,7 +34,6 @@ class ProductCard extends StatelessWidget {
                     ),
                   ),
 
-                  /// Badge
                   Positioned(
                     top: 8,
                     left: 8,
@@ -47,15 +48,11 @@ class ProductCard extends StatelessWidget {
                       ),
                       child: const Text(
                         "limited edition",
-                        style: TextStyle(
-                          fontSize: 10,
-                          color: Colors.white,
-                        ),
+                        style: TextStyle(fontSize: 10, color: Colors.white),
                       ),
                     ),
                   ),
 
-                  /// Heart Icon
                   const Positioned(
                     top: 8,
                     right: 8,
@@ -69,7 +66,6 @@ class ProductCard extends StatelessWidget {
               ),
             ),
 
-            /// Title
             const Padding(
               padding: EdgeInsets.all(8),
               child: Text(
@@ -80,15 +76,11 @@ class ProductCard extends StatelessWidget {
               ),
             ),
 
-            /// Price
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 8),
               child: Text(
                 "Rs. 29",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
 

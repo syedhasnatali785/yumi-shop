@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
        foregroundColor: Colors.black,
       )),
 
-      home:ProductDetailScreen()
+      home:HomeScreen()
     );
   }
 }
